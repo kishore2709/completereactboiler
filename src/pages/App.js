@@ -1,5 +1,6 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+import { Switch } from "react-router-dom";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
@@ -7,14 +8,19 @@ import Header from "../components/Header";
 import LeftDrawer from "../components/LeftDrawer";
 import RightDrawer from "../components/RightDrawer";
 import Data from "../data";
-import Dashboard from "./DashboardPage";
 import ButtonBase from "@material-ui/core/ButtonBase";
-import Form from "./FormPage";
-import BasicTable from "./Table/BasicTables";
-import DataTable from "./Table/DataTables";
-import NotFound from "./NotFoundPage";
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import defaultTheme, { customTheme } from "../theme";
+import {PrivateRoute} from "../components/auth/PrivateRoute";
+import {publicRoutes,dashboardRoutes } from "./routes";
+import AppRoute from "./AppRoute";
+import { createStore, applyMiddleware } from "redux";
+import reduxThunk from "redux-thunk";
+import reducers from "../reducers";
+
+
+const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
+const store = createStoreWithMiddleware(reducers);
 
 const styles = () => ({
   container: {
@@ -94,6 +100,7 @@ class App extends React.Component {
     const { navDrawerOpen, rightDrawerOpen, theme } = this.state;
 
     return (
+      <Provider store={store}>
       <MuiThemeProvider theme={theme}>
         <Header
           handleChangeNavDrawer={this.handleChangeNavDrawer}
@@ -124,15 +131,29 @@ class App extends React.Component {
           )}
         >
           <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/form" component={Form} />
-            <Route path="/table/basic" component={BasicTable} />
-            <Route path="/table/data" component={DataTable} />
-            <Route component={NotFound} />
+          {publicRoutes.map(route => (
+                    <AppRoute
+                      exact
+                      path={route.path}
+                      component={route.component}
+                      layout={route.layout}
+                      key={route.path}
+                    />
+                  ))}
+                  
+          {dashboardRoutes.map(route => (
+                    <PrivateRoute
+                      exact
+                      path={route.path}
+                      layout={route.layout}
+                      component={route.component}
+                      key={route.path}
+                    />
+                  ))}
           </Switch>
         </div>
       </MuiThemeProvider>
+      </Provider>
     );
   }
 }
