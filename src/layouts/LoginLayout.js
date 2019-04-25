@@ -6,10 +6,9 @@ const LoginLayout  = props => (
     <div>  
       <Header/>            
       {props.children} 
-      <Footer/>                                   
+     <Footer/>                                   
     </div>  
-                       
-   
+
   );  
   
 export default LoginLayout;  

@@ -2,9 +2,7 @@ import React from "react";
 import "../style/navstyle.css";
 import "../../node_modules/font-awesome/css/font-awesome.min.css";
 
-class Footer extends React.Component {
-  render() {
-    return (
+const Footer = (
       <footer
         className="footer"
         style={{
@@ -167,7 +165,5 @@ class Footer extends React.Component {
           </div>
         </div>
       </footer>
-    );
-  }
-}
+)
 export default Footer;
