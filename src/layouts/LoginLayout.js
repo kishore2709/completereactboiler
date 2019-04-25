@@ -9,6 +9,6 @@ const LoginLayout  = props => (
      <Footer/>                                   
     </div>  
 
-  );  
+  )
   
 export default LoginLayout;  

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch } from "react-router-dom";
 //import { AUTH_USER } from "../actions/types";
 import { publicRoutes} from "../routes/index";
 //import jwt_decode from "jwt-decode";
-//import { PrivateRoute } from "../components/auth/PrivateRoute";
+import { PrivateRoute } from "../components/auth/PrivateRoute";
 import theme from "../theme";
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import AppRoute from "../routes/AppRoute";
@@ -50,7 +50,7 @@ class Landing extends Component {
                 >
               <Switch>
                   {publicRoutes.map(route => (
-                    <AppRoute
+                    <PrivateRoute
                       exact
                       path={route.path}
                       component={route.component}

@@ -10,7 +10,8 @@ import { store } from './store';
 export default class InitRouter extends React.Component{
 
   render(){
-    if(this.props.authenticated){
+   // if(this.props.authenticated){
+      if(false){
       return (
   <Router>
     <Switch>
@@ -33,7 +34,7 @@ else{
 }
 
 }
-}   
+}   /*
 function mapStateToProps(state) {
   return { authenticated: state.auth.authenticated };
-}
+}*/
