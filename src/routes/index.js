@@ -1,19 +1,19 @@
 
-import Signin from "../components/auth/signin";
-import Signup from "../components/auth/signup";
-import Welcome from "../pages/welcome";
-import Aboutus from "../pages/aboutus";
+import Signin from "../pages/Landing/Auth/signin";
+import Signup from "../pages/Landing/Auth/signup";
+import Welcome from "../pages/Landing/welcome";
+import Aboutus from "../pages/Landing/aboutus";
 
-import Contactus from "../pages/contactus";
-import LoginLayout from "../layouts/LoginLayout";
+import Contactus from "../pages/Landing/contactus";
+import LoginLayout from "../layouts/Landing/LandingLayout";
 
-import Dashboard from "../pages/DashboardPage";
-import Form  from "../pages/FormPage";
+import Dashboard from "../pages/Dashboard/DashboardPage";
+import Form  from "../pages/Dashboard/FormPage";
 import BasicTable from "../pages/Table/BasicTables";
 import DataTable from "../pages/Table/DataTables";
 import NotFound from "../pages/NotFoundPage";
 
-import DashboardLayout from "../layouts/DashboardLayout";
+import DashboardLayout from "../layouts/Dashboard/DashboardLayout";
 export const publicRoutes = [
 
   {

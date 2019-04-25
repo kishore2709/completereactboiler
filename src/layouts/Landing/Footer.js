@@ -1,6 +1,6 @@
 import React from "react";
-import "../style/navstyle.css";
-import "../../node_modules/font-awesome/css/font-awesome.min.css";
+import "../../assets/style/navstyle.css";
+import "../../../node_modules/font-awesome/css/font-awesome.min.css";
 
 class Footer extends React.Component {
   render() {

@@ -7,7 +7,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { withStyles } from "@material-ui/core/styles";
 
 import NestedMenuItem from "./NestedMenuItem";
-import data from "../data";
+import data from "../../data";
 
 const drawStyles = theme => {
   return {
@@ -39,7 +39,7 @@ const drawStyles = theme => {
     },
     avatarRoot: {
       padding: "16px 0 10px 15px",
-      backgroundImage: "url(" + require("../images/material_bg.png") + ")",
+      backgroundImage: "url(" + require("../../assets/images/material_bg.png") + ")",
       height: 45,
       display: "flex"
     },

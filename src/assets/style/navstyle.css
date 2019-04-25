@@ -175,13 +175,13 @@ td,
 th {
   padding: 0;
 }
-* {
+/* * {
   box-sizing: border-box;
 }
 *:before,
 *:after {
   box-sizing: border-box;
-}
+} */
 html {
   -webkit-tap-highlight-color: transparent;
   font-size: 16px;
@@ -17067,7 +17067,7 @@ body {
   font-size: 106.25%;
   margin: 0;
   padding: 0;
-  word-wrap: break-word;
+  /* word-wrap: break-word; */
 }
 canvas {
   display: inline-block;
@@ -17111,7 +17111,7 @@ h6,
   text-rendering: optimizeLegibility;
 }
 html {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   line-height: 1.5;
   margin: 0 !important;
   min-height: 100%;

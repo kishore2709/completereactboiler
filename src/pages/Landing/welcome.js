@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import "../../node_modules/font-awesome/css/font-awesome.min.css";
+import "../../../node_modules/font-awesome/css/font-awesome.min.css";
 
 export default () => {
   return (

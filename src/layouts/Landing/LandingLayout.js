@@ -1,8 +1,8 @@
 import React from 'react';  
-import Header from "./header";
+import Header from "./Header";
 import Footer from "./Footer";
   
-const LoginLayout  = props => (           
+const LandingLayout  = props => (           
     <div>  
       <Header/>            
       {props.children} 
@@ -11,4 +11,4 @@ const LoginLayout  = props => (
 
   )
   
-export default LoginLayout;  
+export default LandingLayout;  

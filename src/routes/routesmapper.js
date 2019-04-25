@@ -1,11 +1,11 @@
 
 import Dashboard from "./DashboardPage";
 import Form from "./FormPage";
-import BasicTable from "./Table/BasicTables";
-import DataTable from "./Table/DataTables";
+import BasicTable from "../pages/Table/BasicTables";
+import DataTable from "../pages/Table/DataTables";
 import NotFound from "./NotFoundPage";
 import DashboardLayout from "../layouts/DashboardLayout";
-import LoginLayout from "../layouts/LoginLayout";
+import LoginLayout from "../layouts/LandingLayout";
 import Signin from "../components/auth/signin";
 import Signup from "../components/auth/signup";
 import Welcome from "./welcome";

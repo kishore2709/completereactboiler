@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { reduxForm, Field } from "redux-form";
 import Button from "@material-ui/core/Button";
-import { renderTextField } from "../../utilities/form_helpers";
+import { renderTextField } from "../../../utilities/form_helpers";
 import Grid from "@material-ui/core/Grid";
-import {signupUser} from "../../actions/actionsLogin";
+import {signupUser} from "../../../actions/actionsLogin";
 
 class Signup extends Component {
   state = {

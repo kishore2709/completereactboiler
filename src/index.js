@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import InitRouter from "./routes";
+import InitRouter from "./InitRouter";
 import registerServiceWorker from "./registerServiceWorker";
 import "./styles.scss";
 import "font-awesome/css/font-awesome.css";

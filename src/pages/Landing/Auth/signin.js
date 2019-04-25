@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { reduxForm, Field } from "redux-form";
-import { renderTextField } from "../../utilities/form_helpers";
+import { renderTextField } from "../../../utilities/form_helpers";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import {signinUser} from "../../actions/actionsLogin";
+import {signinUser} from "../../../actions/actionsLogin";
 
 class Signin extends Component {
   state = {

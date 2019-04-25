@@ -10,7 +10,7 @@ import { grey } from "@material-ui/core/colors";
 import Divider from "@material-ui/core/Divider";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
-import PageBase from "../components/PageBase";
+import PageBase from "../../components/Dashboard/PageBase";
 
 const FormPage = () => {
   const styles = {
