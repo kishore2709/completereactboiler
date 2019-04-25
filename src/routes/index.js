@@ -1,6 +1,7 @@
-
 import Signin from "../pages/Landing/Auth/signin";
 import Signup from "../pages/Landing/Auth/signup";
+import Signout from "../pages/Landing/Auth/signout";
+
 import Welcome from "../pages/Landing/welcome";
 import Aboutus from "../pages/Landing/aboutus";
 
@@ -8,14 +9,13 @@ import Contactus from "../pages/Landing/contactus";
 import LoginLayout from "../layouts/Landing/LandingLayout";
 
 import Dashboard from "../pages/Dashboard/DashboardPage";
-import Form  from "../pages/Dashboard/FormPage";
+import Form from "../pages/Dashboard/FormPage";
 import BasicTable from "../pages/Table/BasicTables";
 import DataTable from "../pages/Table/DataTables";
 import NotFound from "../pages/NotFoundPage";
 
 import DashboardLayout from "../layouts/Dashboard/DashboardLayout";
 export const publicRoutes = [
-
   {
     path: "/",
     layout: LoginLayout,
@@ -48,6 +48,11 @@ export const dashboardRoutes = [
     path: "/",
     layout: DashboardLayout,
     component: Dashboard
+  },
+  {
+    path: "/signout",
+    layout: DashboardLayout,
+    component: Signout
   },
   {
     path: "/dashboard",

@@ -8,6 +8,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 import NestedMenuItem from "./NestedMenuItem";
 import data from "../../data";
+import { connect } from "react-redux";
 
 const drawStyles = theme => {
   return {
@@ -39,7 +40,8 @@ const drawStyles = theme => {
     },
     avatarRoot: {
       padding: "16px 0 10px 15px",
-      backgroundImage: "url(" + require("../../assets/images/material_bg.png") + ")",
+      backgroundImage:
+        "url(" + require("../../assets/images/material_bg.png") + ")",
       height: 45,
       display: "flex"
     },
@@ -69,9 +71,11 @@ const drawStyles = theme => {
 const LeftDrawer = props => {
   let { navDrawerOpen, classes, theme, handleChangeNavDrawer } = props;
 
+  const userName = props.auth.user.username;
+
   const drawerContent = () => (
     <div>
-      <div className={classes.logo}>Material Admin</div>
+      <div className={classes.logo}>Hi, {userName}</div>
       <div
         className={classNames(
           classes.avatarRoot,
@@ -140,4 +144,13 @@ LeftDrawer.propTypes = {
   handleChangeNavDrawer: PropTypes.func
 };
 
-export default withStyles(drawStyles, { withTheme: true })(LeftDrawer);
+function mapStateToProps(state) {
+  return {
+    authenticated: state.auth.authenticated,
+    auth: state.auth
+  };
+}
+
+export default connect(mapStateToProps)(
+  withStyles(drawStyles, { withTheme: true })(LeftDrawer)
+);

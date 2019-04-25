@@ -10,12 +10,15 @@ import { GithubCircle } from "mdi-material-ui";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import PowerOff from "@material-ui/icons/PowerOff";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import Badge from "@material-ui/core/Badge";
 import { Toolbar } from "@material-ui/core";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import { withStyles } from "@material-ui/core/styles";
 
+import { Link as RouterLink } from "react-router-dom";
+import { Link } from "@material-ui/core";
 const styles = theme => ({
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -245,17 +248,16 @@ class Header extends React.Component {
               >
                 <AccountCircle />
               </IconButton>
-              <IconButton
-                aria-owns={isMenuOpen ? "material-appbar" : null}
-                aria-haspopup="true"
-                onClick={() =>
-                  window.open(
-                    "https://github.com/zhuang17/react-material-admin"
-                  )
-                }
-                color="inherit"
-              >
-                <GithubCircle />
+              <IconButton color="inherit">
+                <Link
+                  component={RouterLink}
+                  to="/signout"
+                  color="inherit"
+                  className="nav__link is-collapsed"
+                  title="Sign out"
+                >
+                  <PowerOff />
+                </Link>
               </IconButton>
             </div>
             <div className={classes.sectionMobile}>

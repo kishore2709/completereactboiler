@@ -1,4 +1,4 @@
-import { apiPost } from "../api/apiEndpoints"; 
+import { apiPost } from "../api/apiEndpoints";
 import { API_CONSTANT_MAP } from "../api/apiMap";
 import jwt_decode from "jwt-decode";
 //endpoint, data, isForm

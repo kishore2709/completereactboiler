@@ -9796,9 +9796,9 @@ a.second-level-link [class^="ca-gov-icon-"] {
 html {
   -ms-overflow-style: scrollbar;
 }
-body {
-  overflow-x: hidden;
-}
+/* body {
+   overflow-x: hidden; 
+} */
 .return-top {
   position: fixed;
   z-index: 99999;

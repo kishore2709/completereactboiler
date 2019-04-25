@@ -5,7 +5,7 @@ import { reduxForm, Field } from "redux-form";
 import { renderTextField } from "../../../utilities/form_helpers";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
-import {signinUser} from "../../../actions/actionsLogin";
+import { signinUser } from "../../../actions/actionsLogin";
 
 class Signin extends Component {
   state = {
@@ -13,7 +13,7 @@ class Signin extends Component {
     password: "",
     errors: {}
   };
-  
+
   renderAlert() {
     if (this.props.errorMessage) {
       return (
@@ -39,21 +39,20 @@ class Signin extends Component {
     );
   }
 
-  handleSubmit= e => {
+  handleSubmit = e => {
     e.preventDefault();
     const loginCredentials = {
       email: this.state.email,
       password: this.state.password
     };
     this.props.signinUser(loginCredentials);
-  }
+  };
 
   onChangeHandler = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
   };
-
 
   getRedirectPath() {
     const locationState = this.props.location.state;
@@ -65,20 +64,22 @@ class Signin extends Component {
   }
 
   render() {
-    if (this.props.authenticated ){
-      return <Redirect
-        to={{
-          pathname: this.getRedirectPath(),
-          state: {
-            from: this.props.location
-          }
-        }}
-      />
+    if (this.props.authenticated) {
+      return (
+        <Redirect
+          to={{
+            pathname: this.getRedirectPath(),
+            state: {
+              from: this.props.location
+            }
+          }}
+        />
+      );
     }
     return (
       <div>
         {this.displayRedirectMessages()}
-         <Grid
+        <Grid
           container
           direction="column"
           alignItems="center"
@@ -110,7 +111,6 @@ class Signin extends Component {
             </Button>
           </form>
         </Grid>
-      
       </div>
     );
   }
@@ -125,9 +125,8 @@ function mapStateToProps(state) {
 
 Signin = connect(
   mapStateToProps,
-  {signinUser} 
+  { signinUser }
 )(Signin);
-
 
 Signin = reduxForm({
   form: "signin"
