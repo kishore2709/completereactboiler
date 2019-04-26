@@ -11,6 +11,8 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import PowerOff from "@material-ui/icons/PowerOff";
+import PowerSettingsNew from "@material-ui/icons/PowerSettingsNew";
+
 import MoreIcon from "@material-ui/icons/MoreVert";
 import Badge from "@material-ui/core/Badge";
 import { Toolbar } from "@material-ui/core";
@@ -253,10 +255,9 @@ class Header extends React.Component {
                   component={RouterLink}
                   to="/signout"
                   color="inherit"
-                  className="nav__link is-collapsed"
                   title="Sign out"
                 >
-                  <PowerOff />
+                  <PowerSettingsNew />
                 </Link>
               </IconButton>
             </div>

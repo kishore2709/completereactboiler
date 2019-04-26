@@ -25,26 +25,28 @@ const StripedTable = ({ classes }) => {
     <Card>
       <CardContent>
         <Typography color="textSecondary" gutterBottom>
-          Striped Table
+          Report 2
         </Typography>
         <Divider />
         <Table classes={classes.table}>
           <TableHead>
             <TableRow>
               <TableCell style={styles.columns.id}>ID</TableCell>
-              <TableCell style={styles.columns.name}>Name</TableCell>
-              <TableCell style={styles.columns.price}>Price</TableCell>
-              <TableCell style={styles.columns.category}>Category</TableCell>
+              <TableCell style={styles.columns.name}>Company Name</TableCell>
+              <TableCell style={styles.columns.price}>Fee </TableCell>
+              <TableCell style={styles.columns.category}>Request</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {Data.tablePage.items.slice(0, 5).map(item => (
               <TableRow className={classes.row} key={item.id}>
                 <TableCell style={styles.columns.id}>{item.id}</TableCell>
-                <TableCell style={styles.columns.name}>{item.name}</TableCell>
-                <TableCell style={styles.columns.price}>{item.price}</TableCell>
+                <TableCell style={styles.columns.name}>
+                  {item.companyName}
+                </TableCell>
+                <TableCell style={styles.columns.price}>{item.Fee}</TableCell>
                 <TableCell style={styles.columns.category}>
-                  {item.category}
+                  {item.request}
                 </TableCell>
               </TableRow>
             ))}

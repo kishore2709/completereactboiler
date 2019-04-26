@@ -31,7 +31,7 @@ const BrowserUsage = props => {
   return (
     <Paper style={styles.paper}>
       <div style={{ ...GlobalStyles.title, ...styles.header }}>
-        Browser Usage
+        Application types
       </div>
 
       <div style={GlobalStyles.clear} />

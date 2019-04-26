@@ -29,7 +29,7 @@ const MonthlySales = ({ data, theme }) => {
   return (
     <Paper style={styles.paper}>
       <div style={{ ...GlobalStyles.title, ...styles.header }}>
-        Monthly Sales
+        Processed Apps
       </div>
       <div style={styles.div}>
         <ResponsiveContainer>

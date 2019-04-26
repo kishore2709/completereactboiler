@@ -13,9 +13,11 @@ import Form from "./Dashboard/FormPage";
 import BasicTable from "./Table/BasicTables";
 import DataTable from "./Table/DataTables";
 import NotFound from "./NotFoundPage";
+import ComingSoon from "./ComingSoon";
+
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import defaultTheme, { customTheme } from "../theme";
-import { dashboardRoutes} from "../routes/index";
+import { dashboardRoutes } from "../routes/index";
 import AppRoute from "../routes/AppRoute";
 
 const styles = () => ({
@@ -126,15 +128,15 @@ class App extends React.Component {
           )}
         >
           <Switch>
-          {dashboardRoutes.map(route => (
-                    <AppRoute
-                      exact
-                      path={route.path}
-                      component={route.component}
-                      layout={route.layout}
-                      key={route.path}
-                    />
-                  ))}
+            {dashboardRoutes.map(route => (
+              <AppRoute
+                exact
+                path={route.path}
+                component={route.component}
+                layout={route.layout}
+                key={route.path}
+              />
+            ))}
           </Switch>
         </div>
       </MuiThemeProvider>

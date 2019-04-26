@@ -13,6 +13,7 @@ import Form from "../pages/Dashboard/FormPage";
 import BasicTable from "../pages/Table/BasicTables";
 import DataTable from "../pages/Table/DataTables";
 import NotFound from "../pages/NotFoundPage";
+import ComingSoon from "../pages/ComingSoon";
 
 import DashboardLayout from "../layouts/Dashboard/DashboardLayout";
 export const publicRoutes = [
@@ -73,5 +74,10 @@ export const dashboardRoutes = [
     path: "/table/data",
     layout: DashboardLayout,
     component: DataTable
+  },
+  {
+    path: "/comingsoon",
+    layout: DashboardLayout,
+    component: ComingSoon
   }
 ];

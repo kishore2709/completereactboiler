@@ -25,7 +25,7 @@ const NewOrders = ({ data, theme }) => {
 
   return (
     <Paper style={styles.paper}>
-      <div style={{ ...styles.header }}>New Orders</div>
+      <div style={{ ...styles.header }}>New Applications</div>
       <div style={styles.div}>
         <ResponsiveContainer>
           <LineChart data={data}>

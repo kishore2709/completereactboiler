@@ -54,9 +54,9 @@ const FormPage = () => {
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            <MenuItem value={"London"}>London</MenuItem>
-            <MenuItem value={"Paris"}>Paris</MenuItem>
-            <MenuItem value={"Rome"}>Rome</MenuItem>
+            <MenuItem value={"Sacramento"}>Sacramento</MenuItem>
+            <MenuItem value={"San Francisco"}>San Francisco</MenuItem>
+            <MenuItem value={"Los Angeles"}>Los Angeles</MenuItem>
           </Select>
         </FormControl>
 

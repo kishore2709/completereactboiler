@@ -14,9 +14,19 @@ const rows = [
     disablePadding: true,
     label: "Id"
   },
-  { id: "name", numeric: false, disablePadding: false, label: "Name" },
-  { id: "price", numeric: true, disablePadding: false, label: "Price ($)" },
-  { id: "category", numeric: false, disablePadding: false, label: "Category" }
+  {
+    id: "companyName",
+    numeric: false,
+    disablePadding: false,
+    label: "Company Name"
+  },
+  { id: "Fee", numeric: true, disablePadding: false, label: "Fee ($)" },
+  {
+    id: "request",
+    numeric: false,
+    disablePadding: false,
+    label: "Request Type"
+  }
 ];
 
 class EnhancedTableHead extends React.Component {

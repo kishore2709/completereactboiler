@@ -69,7 +69,7 @@ class RecentlyProducts extends React.Component {
         <List
           subheader={
             <ListSubheader classes={{ root: classes.subheader }}>
-              Recent Products
+              Recent Requests
             </ListSubheader>
           }
         >

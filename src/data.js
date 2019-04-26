@@ -6,59 +6,213 @@ import PermIdentity from "@material-ui/icons/PermIdentity";
 import Web from "@material-ui/icons/Web";
 import BorderClear from "@material-ui/icons/BorderClear";
 import BorderOuter from "@material-ui/icons/BorderOuter";
+import AccountBalance from "@material-ui/icons/AccountBalance";
+import Dashboard from "@material-ui/icons/Dashboard";
 
+import Description from "@material-ui/icons/Description";
+import Group from "@material-ui/icons/Group";
+import Build from "@material-ui/icons/Build";
+import AccountBox from "@material-ui/icons/AccountBox";
+import SwapHoriz from "@material-ui/icons/SwapHoriz";
+import AttachMoney from "@material-ui/icons/AttachMoney";
+import avtar from "./assets/images/avtar.jpeg";
+
+export const reportDet = [
+  {
+    id: 1,
+    companyName: "United Parcel Service	",
+    Fee: "315",
+    request: "Initial Registration"
+  },
+  {
+    id: 2,
+    companyName: "Hogg Drilling Specialty Construction, Inc.		",
+    Fee: "315",
+    request: "Registration Renewals"
+  },
+  {
+    id: 3,
+    companyName: "Robertson's		",
+    Fee: "315",
+    request: "Change of Ownership"
+  },
+  {
+    id: 4,
+    companyName: "Foundation Pile, Inc.		",
+    Fee: "315",
+    request: "Change of Ownership"
+  },
+  {
+    id: 5,
+    companyName: "Dave Soiland Company	",
+    Fee: "315",
+    request: "Initial Registration"
+  },
+  {
+    id: 6,
+    companyName: "Dave Soiland Company	",
+    Fee: "315",
+    request: "Initial Registration"
+  },
+  {
+    id: 7,
+    companyName: "Dave Soiland Company	",
+    Fee: "315",
+    request: "Initial Registration"
+  },
+  {
+    id: 8,
+    companyName: "Dave Soiland Company	",
+    Fee: "315",
+    request: "Initial Registration"
+  },
+  {
+    id: 9,
+    companyName: "Dave Soiland Company	",
+    Fee: "315",
+    request: "Initial Registration"
+  }
+];
 const data = {
   menus: [
-    { text: "DashBoard", icon: <Assessment />, link: "/dashboard" },
-    { text: "Form Page", icon: <Web />, link: "/form" },
+    { text: "DashBoard", icon: <Dashboard />, link: "/dashboard" },
     {
-      text: "Table Page",
+      text: "Admin Tools",
+      icon: <Build />,
+      // link: "/table",
+      subMenus: [
+        {
+          text: "Equipment SwitchTool",
+          icon: <SwapHoriz />,
+          link: "/comingsoon"
+        },
+        {
+          text: "Manage Transactions",
+          icon: <AccountBalance />,
+          link: "/comingsoon"
+        },
+        {
+          text: "Manage App Status",
+          icon: <SwapHoriz />,
+          link: "/comingsoon"
+        }
+      ]
+    },
+    {
+      text: "User Management",
+      icon: <Group />,
+      // link: "/table",
+      subMenus: [
+        {
+          text: "PERP Users",
+          icon: <AccountBox />,
+          link: "/comingsoon"
+        },
+        {
+          text: "District Users",
+          icon: <AccountBox />,
+          link: "/comingsoon"
+        },
+        {
+          text: "Company Users",
+          icon: <AccountBox />,
+          link: "/comingsoon"
+        }
+      ]
+    },
+    {
+      text: "Fee Management",
+      icon: <AttachMoney />,
+      // link: "/table",
+      subMenus: [
+        {
+          text: "Add New Fees",
+          icon: <AttachMoney />,
+          link: "/comingsoon"
+        },
+        {
+          text: "Change Existing Fee",
+          icon: <AttachMoney />,
+          link: "/comingsoon"
+        }
+      ]
+    },
+    {
+      text: "Fleet Management",
       icon: <GridOn />,
       // link: "/table",
       subMenus: [
         {
-          text: "Basic Table",
+          text: "Add",
+          icon: <BorderClear />,
+          link: "/fleet/add"
+        }
+      ]
+    },
+    { text: "Update Checker", icon: <Description />, link: "/comingsoon" },
+
+    { text: "Form Page", icon: <Web />, link: "/form" },
+    {
+      text: "Reports",
+      icon: <GridOn />,
+      // link: "/table",
+      subMenus: [
+        {
+          text: "Data Report",
+          icon: <BorderOuter />,
+          link: "/table/data"
+        },
+        {
+          text: "Basic Report",
           icon: <BorderClear />,
           link: "/table/basic"
         },
         {
-          text: "Data Table",
-          icon: <BorderOuter />,
-          link: "/table/data"
+          text: "All Units Reports",
+          icon: <BorderClear />,
+          link: "/comingsoon"
+        },
+        {
+          text: "Company Reports",
+          icon: <BorderClear />,
+          link: "/comingsoon"
+        },
+        {
+          text: "District Reports",
+          icon: <BorderClear />,
+          link: "/comingsoon"
+        },
+        {
+          text: "Annual Reports",
+          icon: <BorderClear />,
+          link: "/comingsoon"
         }
       ]
     },
     { text: "Login Page", icon: <PermIdentity />, link: "/login" }
   ],
   user: {
-    userName: `${Faker.name.firstName()} ${Faker.name.lastName()}`,
-    avatar: Faker.image.avatar()
+    userName: "Full Name",
+    avatar: avtar
   },
-  tablePage: {
-    items: Array.from({ length: 105 }, (item, index) => ({
-      id: index,
-      name: Faker.commerce.productName(),
-      price: Faker.commerce.price(),
-      category: Faker.commerce.productMaterial()
-    }))
-  },
+
   dashBoardPage: {
     recentProducts: [
       {
         id: 1,
-        title: "Samsung TV",
-        text: "Samsung 32 1080p 60Hz LED Smart HDTV."
+        title: "Initial Registration Request",
+        text: "	United Rentals (North America), Inc."
       },
-      { id: 2, title: "Playstation 4", text: "PlayStation 3 500 GB System" },
+      { id: 2, title: "Change of Ownership", text: "Sunbelt Rentals" },
       {
         id: 3,
-        title: "Apple iPhone 6",
-        text: "Apple iPhone 6 Plus 16GB Factory Unlocked GSM 4G "
+        title: "Registration Renewal",
+        text: "	City of San Diego"
       },
       {
         id: 4,
-        title: "Apple MacBook",
-        text: "Apple MacBook Pro MD101LL/A 13.3-Inch Laptop"
+        title: "Intial Registration",
+        text: "BlueLine Rental, LLC	"
       }
     ],
     monthlySales: [
@@ -84,11 +238,24 @@ const data = {
       { pv: 3490 },
       { pv: 4300 }
     ],
-    browserUsage: [
-      { name: "Chrome", value: 800 },
-      { name: "Firefox", value: 300 },
-      { name: "Safari", value: 300 }
+    appTypes: [
+      { name: "New Registrations", value: 500 },
+      { name: "Registration Renewals", value: 200 },
+      { name: "Change of Ownership", value: 80 },
+      { name: "Placard Replacement", value: 150 }
     ]
+  },
+  // tablePage: {
+  //   items: Array.from({ length: 105 }, (item, index) => ({
+  //     id: index,
+  //     name: Faker.commerce.productName(),
+  //     price: Faker.commerce.price(),
+  //     category: Faker.commerce.productMaterial()
+  //   }))
+  // },
+
+  tablePage: {
+    items: reportDet
   }
 };
 

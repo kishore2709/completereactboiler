@@ -160,9 +160,9 @@ class EnhancedTable extends React.Component {
                       <TableCell align="right">{n.carbs}</TableCell>
                       <TableCell align="right">{n.protein}</TableCell> */}
                       <TableCell>{n.id}</TableCell>
-                      <TableCell>{n.name}</TableCell>
-                      <TableCell>{n.price}</TableCell>
-                      <TableCell>{n.category}</TableCell>
+                      <TableCell>{n.companyName}</TableCell>
+                      <TableCell>{n.Fee}</TableCell>
+                      <TableCell>{n.request}</TableCell>
                       <TableCell>
                         <Link className="button" to="/form">
                           <Button mini={true} variant="fab" zDepth={0}>

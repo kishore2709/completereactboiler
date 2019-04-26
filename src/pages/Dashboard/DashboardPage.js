@@ -1,6 +1,9 @@
 import React from "react";
 import { cyan, pink, purple, orange } from "@material-ui/core/colors";
 import Assessment from "@material-ui/icons/Assessment";
+import Timeline from "@material-ui/icons/Timeline";
+import CreditCard from "@material-ui/icons/CreditCard";
+import Description from "@material-ui/icons/Description";
 import Face from "@material-ui/icons/Face";
 import ThumbUp from "@material-ui/icons/ThumbUp";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
@@ -21,33 +24,33 @@ const DashboardPage = () => {
       <Grid container spacing={24}>
         <Grid item xs={12} sm={6} md={3}>
           <InfoBox
-            Icon={ShoppingCart}
+            Icon={Timeline}
             color={pink[600]}
-            title="Total Profit"
-            value="1500k"
+            title="Total Applications Received"
+            value="1500"
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <InfoBox
-            Icon={ThumbUp}
+            Icon={Description}
             color={cyan[600]}
-            title="Likes"
-            value="4231"
+            title="Processed Applications"
+            value="800"
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <InfoBox
             Icon={Assessment}
             color={purple[600]}
-            title="Sales"
-            value="460"
+            title="Fee Received"
+            value="46K"
           />
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           <InfoBox
-            Icon={Face}
+            Icon={CreditCard}
             color={orange[600]}
-            title="New Members"
+            title="Placards Issued"
             value="248"
           />
         </Grid>
@@ -66,7 +69,7 @@ const DashboardPage = () => {
           <RecentlyProducts data={Data.dashBoardPage.recentProducts} />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <BrowserUsage data={Data.dashBoardPage.browserUsage} />
+          <BrowserUsage data={Data.dashBoardPage.appTypes} />
         </Grid>
       </Grid>
     </div>
