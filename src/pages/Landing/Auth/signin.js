@@ -8,12 +8,17 @@ import Grid from "@material-ui/core/Grid";
 import { signinUser } from "../../../actions/actionsLogin";
 
 class Signin extends Component {
-  state = {
-    email: "",
-    password: "",
-    errors: {}
-  };
+  
+  constructor(props){
+super(props);
+this.state= {
+  email: "",
+  password: "",
+  errors: {}
+};
+this.handleSubmit=this.handleSubmit.bind(this);
 
+  }
   renderAlert() {
     if (this.props.errorMessage) {
       return (
@@ -87,7 +92,14 @@ class Signin extends Component {
           style={{ minHeight: "25vh" }}
         >
           {this.renderAlert()}
-          <form onSubmit={this.handleSubmit.bind(this)}>
+        {/* 1. Bind in render - creates new function everytime component renders
+         <form onSubmit={this.handleSubmit.bind(this)}>
+         2. Use arrow function in render - creates new function everytime component renders
+          <form onSubmit={()=> this.handleSubmit()}>
+          3. Bind in constructor - better performance than 1 & 2
+
+         */} 
+          <form onSubmit={this.handleSubmit}>
             <Field
               name="email"
               component={renderTextField}

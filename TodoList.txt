@@ -1,0 +1,2 @@
+Use functional components instead of class components where ever applicable.
+Use eslint for clean code & automate testing 
