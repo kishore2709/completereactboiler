@@ -230,7 +230,14 @@ class Header extends React.Component {
                   badgeContent={4}
                   color="secondary"
                 >
-                  <MailIcon />
+                  <Link
+                    component={RouterLink}
+                    to="/signout"
+                    color="inherit"
+                    title="Sign out"
+                  >
+                    <MailIcon />
+                  </Link>
                 </Badge>
               </IconButton>
               <IconButton color="inherit">
@@ -239,7 +246,14 @@ class Header extends React.Component {
                   badgeContent={17}
                   color="secondary"
                 >
-                  <NotificationsIcon />
+                  <Link
+                    component={RouterLink}
+                    to="/signout"
+                    color="inherit"
+                    title="Sign out"
+                  >
+                    <NotificationsIcon />
+                  </Link>
                 </Badge>
               </IconButton>
               <IconButton
@@ -248,7 +262,14 @@ class Header extends React.Component {
                 onClick={this.handleProfileMenuOpen}
                 color="inherit"
               >
-                <AccountCircle />
+                <Link
+                  component={RouterLink}
+                  to="/signout"
+                  color="inherit"
+                  title="Sign out"
+                >
+                  <AccountCircle />
+                </Link>
               </IconButton>
               <IconButton color="inherit">
                 <Link

@@ -92,7 +92,17 @@ const data = {
           link: "/comingsoon"
         },
         {
-          text: "Manage App Status",
+          text: "Manage Applications",
+          icon: <Description />,
+          link: "/comingsoon"
+        },
+        {
+          text: "Manage Ledger Fee",
+          icon: <AttachMoney />,
+          link: "/comingsoon"
+        },
+        {
+          text: "Swap Serial No",
           icon: <SwapHoriz />,
           link: "/comingsoon"
         }
@@ -143,9 +153,14 @@ const data = {
       // link: "/table",
       subMenus: [
         {
-          text: "Add",
+          text: "Create New Fleet",
           icon: <BorderClear />,
-          link: "/fleet/add"
+          link: "/comingsoon"
+        },
+        {
+          text: "Modify Existing Fleet",
+          icon: <BorderClear />,
+          link: "/comingsoon"
         }
       ]
     },
@@ -166,6 +181,16 @@ const data = {
           text: "Basic Report",
           icon: <BorderClear />,
           link: "/table/basic"
+        },
+        {
+          text: "Create New Report from Template",
+          icon: <BorderOuter />,
+          link: "/comingsoon"
+        },
+        {
+          text: "Create Customized Report from Template",
+          icon: <BorderOuter />,
+          link: "/comingsoon"
         },
         {
           text: "All Units Reports",

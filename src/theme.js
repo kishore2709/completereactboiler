@@ -58,7 +58,7 @@ const defaultTheme = {
     color: blue[600]
   },
   drawer: {
-    width: 240,
+    width: 340,
     color: grey[900],
     backgroundColor: black,
     miniWidth: 56

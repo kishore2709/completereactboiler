@@ -6,7 +6,7 @@ const ComingSoon = () => {
     <div>
       <Grid container spacing={24}>
         <Grid item xs={12} sm={6} md={3}>
-          <img src={Image} />
+          <img src={Image} alt="This Feature is Coming very soon" />
         </Grid>
       </Grid>
     </div>
