@@ -19,6 +19,10 @@ import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import defaultTheme, { customTheme } from "../theme";
 import { dashboardRoutes } from "../routes/index";
 import AppRoute from "../routes/AppRoute";
+import "./rc-tab.css";
+import Tabs, { TabPane } from "rc-tabs";
+import TabContent from "rc-tabs/lib/TabContent";
+import ScrollableInkTabBar from "rc-tabs/lib/ScrollableInkTabBar";
 
 const styles = () => ({
   container: {
@@ -64,13 +68,51 @@ class App extends React.Component {
         window.innerWidth &&
         window.innerWidth >= defaultTheme.breakpoints.values.md
           ? true
-          : false
+          : false,
+      tabs: [
+        {
+          path: "/dashboard",
+          key: "/dashboard"
+        }
+      ],
+      activeKey: "/dashboard"
     };
 
     this.handleChangeRightDrawer = this.handleChangeRightDrawer.bind(this);
     this.handleChangeNavDrawer = this.handleChangeNavDrawer.bind(this);
     this.handleChangeTheme = this.handleChangeTheme.bind(this);
+    this.onHandlePage = this.onHandlePage.bind(this);
   }
+
+  comp(key) {
+    const compnt = dashboardRoutes.find(routes => routes.path === key);
+    if (typeof compnt === "undefined") {
+      return "Dashboard";
+    } else {
+      return compnt.component;
+    }
+  }
+
+  onHandlePage = (e, pathName) => {
+    e.stopPropagation();
+    const found = this.state.tabs.some(el => el.path === pathName);
+    if (!found) {
+      const newTab = {
+        path: pathName,
+        key: pathName
+      };
+      this.setState({
+        tabs: this.state.tabs.concat(newTab),
+        activeKey: newTab.key
+      });
+    } else {
+      this.setState({
+        activeKey: dashboardRoutes.find(route => {
+          return route.path === pathName;
+        }).path
+      });
+    }
+  };
 
   handleChangeNavDrawer() {
     this.setState({
@@ -93,6 +135,81 @@ class App extends React.Component {
     });
   }
 
+  onTabChange = activeKey => {
+    this.setState({
+      activeKey
+    });
+    this.props.history.push(activeKey);
+  };
+
+  construct() {
+    return this.state.tabs.map(t => {
+      return (
+        <TabPane
+          tab={
+            <span>
+              {t.key}
+              <a
+                style={{
+                  position: "absolute",
+                  cursor: "pointer",
+                  color: "red",
+                  right: 5,
+                  top: 0
+                }}
+                onClick={e => {
+                  this.remove(t.key, e);
+                }}
+              >
+                x
+              </a>
+            </span>
+          }
+          key={t.key}
+        >
+          <Switch>
+            {dashboardRoutes.map(route => (
+              <Route
+                exact
+                path={route.path}
+                component={route.component}
+                key={t.key}
+              />
+            ))}
+            <Route component={NotFound} />
+          </Switch>
+        </TabPane>
+      );
+    });
+  }
+
+  remove = (title, e) => {
+    e.stopPropagation();
+    if (this.state.tabs.length === 1) {
+      alert("Only one left, can't delete");
+      return;
+    }
+    let foundIndex = 0;
+    const after = this.state.tabs.filter((t, i) => {
+      if (t.key !== title) {
+        return true;
+      }
+      foundIndex = i;
+      return false;
+    });
+    let activeKey = this.state.activeKey;
+    if (activeKey === title) {
+      if (foundIndex) {
+        foundIndex--;
+      }
+      activeKey = after[foundIndex].title;
+    }
+    this.setState({
+      tabs: after,
+      activeKey
+    });
+  };
+
   render() {
     const { classes } = this.props;
     const { navDrawerOpen, rightDrawerOpen, theme } = this.state;
@@ -108,6 +225,7 @@ class App extends React.Component {
           navDrawerOpen={navDrawerOpen}
           handleChangeNavDrawer={this.handleChangeNavDrawer}
           menus={Data.menus}
+          onHandlePage={this.onHandlePage}
         />
         <ButtonBase
           color="inherit"
@@ -127,7 +245,7 @@ class App extends React.Component {
             !navDrawerOpen && classes.containerFull
           )}
         >
-          <Switch>
+          {/* <Switch>
             {dashboardRoutes.map(route => (
               <AppRoute
                 exact
@@ -137,7 +255,25 @@ class App extends React.Component {
                 key={route.path}
               />
             ))}
-          </Switch>
+          </Switch> */}
+
+          <div>
+            <Tabs
+              tabBarPosition={"top"}
+              renderTabBar={() => (
+                <ScrollableInkTabBar
+                /*  extraContent={
+                  <button onClick={this.add}>+Add to</button>
+                }*/
+                />
+              )}
+              renderTabContent={() => <TabContent />}
+              activeKey={this.state.activeKey}
+              onChange={this.onTabChange}
+            >
+              {this.construct()}
+            </Tabs>
+          </div>
         </div>
       </MuiThemeProvider>
     );

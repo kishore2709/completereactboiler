@@ -48,6 +48,7 @@ export const dashboardRoutes = [
   {
     path: "/",
     layout: DashboardLayout,
+    key: "default",
     component: Dashboard
   },
   {
@@ -58,26 +59,31 @@ export const dashboardRoutes = [
   {
     path: "/dashboard",
     layout: DashboardLayout,
+    key: "dashboard",
     component: Dashboard
   },
   {
     path: "/form",
     layout: DashboardLayout,
+    key: "form",
     component: Form
   },
   {
     path: "/table/basic",
     layout: DashboardLayout,
+    key: "basic",
     component: BasicTable
   },
   {
     path: "/table/data",
     layout: DashboardLayout,
+    key: "data",
     component: DataTable
   },
   {
     path: "/comingsoon",
     layout: DashboardLayout,
+    key: "comingsoon",
     component: ComingSoon
   }
 ];

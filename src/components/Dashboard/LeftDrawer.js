@@ -69,7 +69,13 @@ const drawStyles = theme => {
 };
 
 const LeftDrawer = props => {
-  let { navDrawerOpen, classes, theme, handleChangeNavDrawer } = props;
+  let {
+    navDrawerOpen,
+    classes,
+    theme,
+    handleChangeNavDrawer,
+    onHandlePage
+  } = props;
 
   const userName = props.auth.user.username;
 
@@ -90,7 +96,12 @@ const LeftDrawer = props => {
         <span className={classes.avatarSpan}>{data.user.userName}</span>
       </div>
       {props.menus.map((menu, index) => (
-        <NestedMenuItem key={index} menu={menu} navDrawerOpen={navDrawerOpen} />
+        <NestedMenuItem
+          key={index}
+          menu={menu}
+          navDrawerOpen={navDrawerOpen}
+          onHandlePage={onHandlePage}
+        />
       ))}
     </div>
   );
@@ -141,7 +152,8 @@ LeftDrawer.propTypes = {
   username: PropTypes.string,
   classes: PropTypes.object,
   theme: PropTypes.object,
-  handleChangeNavDrawer: PropTypes.func
+  handleChangeNavDrawer: PropTypes.func,
+  onHandlePage: PropTypes.func
 };
 
 function mapStateToProps(state) {
