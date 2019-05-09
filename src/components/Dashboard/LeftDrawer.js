@@ -14,7 +14,7 @@ const drawStyles = theme => {
   return {
     drawerPaper: {
       width: theme.drawer.width,
-      backgroundColor: "rgb(33, 33, 33)",
+      backgroundColor: "rgb(31, 91, 113)",
       color: "white",
       borderRight: "0px",
       boxShadow:
