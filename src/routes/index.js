@@ -14,6 +14,7 @@ import BasicTable from "../pages/Table/BasicTables";
 import DataTable from "../pages/Table/DataTables";
 import NotFound from "../pages/NotFoundPage";
 import ComingSoon from "../pages/ComingSoon";
+import EquipmentSwitch from "../pages/EquipmentSwitch";
 
 import DashboardLayout from "../layouts/Dashboard/DashboardLayout";
 export const publicRoutes = [
@@ -52,6 +53,11 @@ export const dashboardRoutes = [
     component: Dashboard
   },
   {
+    path: "/signin",
+    layout: DashboardLayout,
+    component: Dashboard
+  },
+  {
     path: "/signout",
     layout: DashboardLayout,
     component: Signout
@@ -85,5 +91,11 @@ export const dashboardRoutes = [
     layout: DashboardLayout,
     key: "comingsoon",
     component: ComingSoon
+  },
+  {
+    path: "/equipmentswitch",
+    layout: DashboardLayout,
+    key: "equipmentswitch",
+    component: EquipmentSwitch
   }
 ];

@@ -21,7 +21,7 @@ export function signinUser({ email, password }) {
         // -if request is good, we need to update state to indicate user is authenticated
         // Decode token to get user data
         const decoded = jwt_decode(response.data.accessToken);
-        dispatch({ type: AUTH_USER, payload: decoded });
+        dispatch(authUser(decoded));
       })
 
       // If request is bad...
@@ -76,4 +76,8 @@ export function authError(error) {
     type: AUTH_ERROR,
     payload: error
   };
+}
+
+export function authUser(decoded) {
+  return { type: AUTH_USER, payload: decoded };
 }

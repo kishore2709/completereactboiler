@@ -6,18 +6,17 @@ import { renderTextField } from "../../../utilities/form_helpers";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import { signinUser } from "../../../actions/actionsLogin";
+import PropTypes from "prop-types";
 
 class Signin extends Component {
-  
-  constructor(props){
-super(props);
-this.state= {
-  email: "",
-  password: "",
-  errors: {}
-};
-this.handleSubmit=this.handleSubmit.bind(this);
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: "",
+      errors: {}
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   renderAlert() {
     if (this.props.errorMessage) {
@@ -29,11 +28,11 @@ this.handleSubmit=this.handleSubmit.bind(this);
       );
     }
   }
-  componentWillUnmount() {
-    if (this.props.errorMessage) {
-      this.props.authError(null);
-    }
-  }
+  // componentWillUnmount() {
+  //   if (this.props.errorMessage) {
+  //     this.props.authError(null);
+  //   }
+  // }
 
   displayRedirectMessages() {
     const location = this.props.location;
@@ -69,19 +68,16 @@ this.handleSubmit=this.handleSubmit.bind(this);
   }
 
   render() {
-    if (this.props.authenticated) {
-      return (
-        <Redirect
-          to={{
-            pathname: this.getRedirectPath(),
-            state: {
-              from: this.props.location
-            }
-          }}
-        />
-      );
-    }
-    return (
+    return this.props.authenticated ? (
+      <Redirect
+        to={{
+          pathname: "/dashboard",
+          state: {
+            from: this.props.location
+          }
+        }}
+      />
+    ) : (
       <div>
         {this.displayRedirectMessages()}
         <Grid
@@ -92,13 +88,13 @@ this.handleSubmit=this.handleSubmit.bind(this);
           style={{ minHeight: "25vh" }}
         >
           {this.renderAlert()}
-        {/* 1. Bind in render - creates new function everytime component renders
+          {/* 1. Bind in render - creates new function everytime component renders
          <form onSubmit={this.handleSubmit.bind(this)}>
          2. Use arrow function in render - creates new function everytime component renders
           <form onSubmit={()=> this.handleSubmit()}>
           3. Bind in constructor - better performance than 1 & 2
 
-         */} 
+         */}
           <form onSubmit={this.handleSubmit}>
             <Field
               name="email"
@@ -128,9 +124,14 @@ this.handleSubmit=this.handleSubmit.bind(this);
   }
 }
 
+Signin.propTypes = {
+  signinUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
 function mapStateToProps(state) {
   return {
-    authenticated: state.auth.authenticated,
+    auth: state.auth,
     errorMessage: state.auth.error
   };
 }

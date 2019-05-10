@@ -5,10 +5,21 @@ import {
   FETCH_MESSAGE
 } from "../actions/types";
 
-export default function authReducer(state = {}, action) {
+const initialState = {
+  authenticated: false,
+  user: {},
+  error: ""
+};
+
+export default function authReducer(state = initialState, action) {
   switch (action.type) {
     case AUTH_USER:
-      return { ...state, error: "", authenticated: true, user: action.payload };
+      return {
+        ...state,
+        error: "",
+        authenticated: true,
+        user: action.payload
+      };
     case UNAUTH_USER:
       return { ...state, authenticated: false };
     case AUTH_ERROR:

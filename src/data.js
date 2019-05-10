@@ -84,7 +84,7 @@ const data = {
         {
           text: "Equipment SwitchTool",
           icon: <SwapHoriz />,
-          link: "/comingsoon"
+          link: "/equipmentswitch"
         },
         {
           text: "Manage Transactions",
