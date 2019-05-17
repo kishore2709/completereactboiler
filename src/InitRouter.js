@@ -5,16 +5,25 @@ import Login from "./pages/LoginPage";
 import Landing from "./pages/Landing/Landing";
 import jwt_decode from "jwt-decode";
 import { connect } from "react-redux";
+<<<<<<< HEAD
 import { authUser } from "./actions/actionsLogin";
+=======
+import { authUser, signoutUser } from "./actions/actionsLogin";
+>>>>>>> 4176c601dcd1adbd2d4553e2c1904b66487e5d57
 
 class InitRouter extends React.Component {
-
   componentDidMount() {
-   const token = localStorage.getItem("token");
-   if (token) {
-    const decoded = jwt_decode(token);
-    this.props.authUser(decoded);
-  }
+    const token = localStorage.getItem("token");
+    if (token) {
+      const decoded = jwt_decode(token);
+
+      const currentTime = Date.now() / 1000;
+      if (decoded.exp < currentTime) {
+        this.props.signoutUser();
+        window.location.href = "./signin";
+      }
+      this.props.authUser(decoded);
+    }
   }
   render() {
     if (this.props.authenticated) {
@@ -39,15 +48,16 @@ class InitRouter extends React.Component {
   }
 }
 
-const  mapStateToProps = state =>({
+const mapStateToProps = state => ({
   authenticated: state.auth.authenticated
 });
 
 const mapDispatchToProps = dispatch => ({
-  authUser: decoded => dispatch(authUser(decoded))
+  authUser: decoded => dispatch(authUser(decoded)),
+  signoutUser: () => dispatch(signoutUser())
 });
 
 export default connect(
   mapStateToProps,
- mapDispatchToProps
-  )(InitRouter);
+  mapDispatchToProps
+)(InitRouter);
