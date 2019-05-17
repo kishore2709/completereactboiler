@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import Typography from "@material-ui/core/Typography";
 
-class Aboutus extends Component {
-  render() {
+const Aboutus = () => {
     return (
       <div>
         <Typography variant="h4" align="center" gutterBottom>
@@ -24,7 +23,6 @@ class Aboutus extends Component {
         </Typography>
       </div>
     );
-  }
 }
 
 export default Aboutus;

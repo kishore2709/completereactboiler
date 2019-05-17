@@ -7,18 +7,11 @@ import Header from "../components/Dashboard/Header";
 import LeftDrawer from "../components/Dashboard/LeftDrawer";
 import RightDrawer from "../components/Dashboard/RightDrawer";
 import Data from "../data";
-import Dashboard from "./Dashboard/DashboardPage";
 import ButtonBase from "@material-ui/core/ButtonBase";
-import Form from "./Dashboard/FormPage";
-import BasicTable from "./Table/BasicTables";
-import DataTable from "./Table/DataTables";
 import NotFound from "./NotFoundPage";
-import ComingSoon from "./ComingSoon";
-
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
 import defaultTheme, { customTheme } from "../theme";
 import { dashboardRoutes } from "../routes/index";
-import AppRoute from "../routes/AppRoute";
 import "./rc-tab.css";
 import Tabs, { TabPane } from "rc-tabs";
 import TabContent from "rc-tabs/lib/TabContent";

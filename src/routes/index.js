@@ -12,7 +12,6 @@ import Dashboard from "../pages/Dashboard/DashboardPage";
 import Form from "../pages/Dashboard/FormPage";
 import BasicTable from "../pages/Table/BasicTables";
 import DataTable from "../pages/Table/DataTables";
-import NotFound from "../pages/NotFoundPage";
 import ComingSoon from "../pages/ComingSoon";
 import EquipmentSwitch from "../pages/EquipmentSwitch";
 

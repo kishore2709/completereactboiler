@@ -10,8 +10,8 @@ const initialState = {
   user: {},
   error: ""
 };
-
-export default function authReducer(state = initialState, action) {
+let authReducer ={};
+export default authReducer = (state = initialState, action) => {
   switch (action.type) {
     case AUTH_USER:
       return {

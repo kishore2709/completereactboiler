@@ -7,8 +7,6 @@ import jwt_decode from "jwt-decode";
 import { connect } from "react-redux";
 import { authUser } from "./actions/actionsLogin";
 
-import { store } from "./store";
-
 class InitRouter extends React.Component {
 
   componentDidMount() {
