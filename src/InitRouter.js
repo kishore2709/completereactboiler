@@ -15,8 +15,7 @@ class InitRouter extends React.Component {
    const token = localStorage.getItem("token");
    if (token) {
     const decoded = jwt_decode(token);
-  
-    store.dispatch(authUser(decoded));
+    this.props.authUser(decoded);
   }
   }
   render() {
@@ -45,12 +44,12 @@ class InitRouter extends React.Component {
 const  mapStateToProps = state =>({
   authenticated: state.auth.authenticated
 });
-/*
+
 const mapDispatchToProps = dispatch => ({
-  checkToken: () => dispatch(checkToken())
+  authUser: decoded => dispatch(authUser(decoded))
 });
-*/
+
 export default connect(
   mapStateToProps,
- // mapDispatchToProps,
+ mapDispatchToProps
   )(InitRouter);
