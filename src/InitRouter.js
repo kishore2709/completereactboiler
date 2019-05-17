@@ -9,22 +9,15 @@ import { authUser } from "./actions/actionsLogin";
 
 import { store } from "./store";
 
-  const token = localStorage.getItem("token");
+class InitRouter extends React.Component {
 
-  if (token) {
+  componentDidMount() {
+   const token = localStorage.getItem("token");
+   if (token) {
     const decoded = jwt_decode(token);
   
     store.dispatch(authUser(decoded));
   }
-
-
-class InitRouter extends React.Component {
-
-  componentDidMount() {
-   // const token = localStorage.getItem("token");
-    //if (!this.props.user && localStorage.getItem("token")) {
-     // this.props.getAuthenticatedUser(token);
-    //}
   }
   render() {
     if (this.props.authenticated) {
