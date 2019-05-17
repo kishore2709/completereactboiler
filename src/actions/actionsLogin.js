@@ -71,13 +71,13 @@ export function signupUser({
   };
 }
 
-export function authError(error) {
-  return {
+export const authError = error => ({
     type: AUTH_ERROR,
-    payload: error
-  };
-}
+    payload: error,
+})
+// Set logged in user
+export const authUser = decoded =>({
+  type: AUTH_USER, 
+  payload: decoded,
+}) ;
 
-export function authUser(decoded) {
-  return { type: AUTH_USER, payload: decoded };
-}
