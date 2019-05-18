@@ -5,11 +5,7 @@ import Login from "./pages/LoginPage";
 import Landing from "./pages/Landing/Landing";
 import jwt_decode from "jwt-decode";
 import { connect } from "react-redux";
-<<<<<<< HEAD
-import { authUser } from "./actions/actionsLogin";
-=======
 import { authUser, signoutUser } from "./actions/actionsLogin";
->>>>>>> 4176c601dcd1adbd2d4553e2c1904b66487e5d57
 
 class InitRouter extends React.Component {
   componentDidMount() {
