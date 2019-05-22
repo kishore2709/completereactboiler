@@ -10,11 +10,16 @@ export function getEquipmentByTrackingNo({ trackingNo }) {
   const tracking = { trackingNo: trackingNo };
   const endPoint = API_CONSTANT_MAP.equipswitch;
   // const request = apiGet(endPoint, tracking);
+  function getRandom(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+
   const res = {
     trackingNo: trackingNo,
-    regitemSubtypes: 5,
-    regitemSubsubtypes: 15
+    regitemSubtypes: getRandom(1, 15),
+    regitemSubsubtypes: getRandom(1, 35)
   };
+
   return function(dispatch) {
     dispatch(equipmentInfo(res));
     // request
@@ -37,8 +42,6 @@ export function updateRegTypesByTrackingNo({ updateRegDetails }) {
     request
       .then(response => {
         dispatch(equipmentInfo(response.data));
-
-        console.log(response.data);
       })
       .catch(({ response }) => {
         dispatch(error(response.data.error));
