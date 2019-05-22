@@ -17,6 +17,192 @@ import SwapHoriz from "@material-ui/icons/SwapHoriz";
 import AttachMoney from "@material-ui/icons/AttachMoney";
 import avtar from "./assets/images/avtar.jpeg";
 
+export const regSubTypes = [
+  {
+    option: "Compression Ignition (Diesel)",
+    value: 1
+  },
+  {
+    option: "Spark Ignition",
+    value: 2
+  },
+  {
+    option: "  Sand & Gravel Screening and Rock Crushing",
+    value: 3
+  },
+  {
+    option: "Abrasive Blasting",
+    value: 4
+  },
+  {
+    option: "Tactical Support Equipment",
+    value: 5
+  },
+  {
+    option: "Miscellaneous",
+    value: 6
+  },
+  {
+    option: "Pile Driver",
+    value: 7
+  },
+  {
+    option: "Wood Processing",
+    value: 8
+  },
+  {
+    option: "Storage Silo",
+    value: 9
+  },
+  {
+    option: "Rock Drill",
+    value: 10
+  },
+  {
+    option: "Slurry Mixer",
+    value: 11
+  },
+  {
+    option: "Road Surface Processing (Pavement Crushing & Recycling)",
+    value: 12
+  },
+  {
+    option: "Converted Data",
+    value: 13
+  },
+  {
+    option: "Unknown",
+    value: 14
+  }
+];
+
+export const regSubSubTypes = [
+  {
+    option: "Tub Grinder",
+    value: 1
+  },
+  {
+    option: "Trommel Screen",
+    value: 2
+  },
+  {
+    option: "Hammer Mill",
+    value: 3
+  },
+  {
+    option: "Horizontal Grinder",
+    value: 4
+  },
+  {
+    option: "Wood Chipper",
+    value: 5
+  },
+  {
+    option: "Transfer Conveyor",
+    value: 8
+  },
+  {
+    option: "Compost Turner",
+    value: 10
+  },
+  {
+    option: "Shredder",
+    value: 11
+  },
+  {
+    option: "Cement Slurry Mixer",
+    value: 12
+  },
+  {
+    option: "Lime Slurry Mixer",
+    value: 13
+  },
+  {
+    option: "Crushing plant",
+    value: 14
+  },
+  {
+    option: "Screening plant",
+    value: 15
+  },
+  {
+    option: "Grinder",
+    value: 16
+  },
+  {
+    option: "Planer",
+    value: 17
+  },
+  {
+    option: "Truck Mix",
+    value: 18
+  },
+  {
+    option: "Central Mix",
+    value: 19
+  },
+  {
+    option: "Trenching Machine",
+    value: 20
+  },
+  {
+    option: "Cold Planer",
+    value: 21
+  },
+  {
+    option: "Crushing and screening plant",
+    value: 22
+  },
+  {
+    option: "Wood/Misc Processing Screen",
+    value: 23
+  },
+  {
+    option: "Milling Machine",
+    value: 24
+  },
+  {
+    option: "Pavement Grinder",
+    value: 25
+  },
+  {
+    option: "Conveyor",
+    value: 26
+  },
+  {
+    option: "Aggregate Slurry Mixer",
+    value: 27
+  },
+  {
+    option: "Reclaimer Machine",
+    value: 28
+  },
+  {
+    option: "Mixing Plant",
+    value: 29
+  },
+  {
+    option: "Stump Cutter",
+    value: 30
+  },
+  {
+    option: "Soil Stabilizer",
+    value: 31
+  },
+  {
+    option: "Radial Stacker",
+    value: 32
+  },
+  {
+    option: "Blending Plant",
+    value: 33
+  },
+  {
+    option: "Rip Rap Plant",
+    value: 34
+  }
+];
+
 export const reportDet = [
   {
     id: 1,

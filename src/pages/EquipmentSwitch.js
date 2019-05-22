@@ -8,6 +8,9 @@ import PageBase from "../components/Dashboard/PageBase";
 import Table from "@material-ui/core/Table";
 import { connect } from "react-redux";
 import { getEquipmentByTrackingNo } from "../actions/actionsEquipmentSwitch";
+
+import { regSubSubTypes, regSubTypes } from "../data";
+
 const styles = {
   toggleDiv: {
     marginTop: 20,
@@ -52,6 +55,18 @@ class EquipmentSwitch extends Component {
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  selectOptionsRegSubTypes = e => {
+    return regSubTypes.map(rsubtypes => (
+      <option value={rsubtypes.value}>{rsubtypes.option}</option>
+    ));
+  };
+
+  selectOptionsRegSubSubTypes = e => {
+    return regSubSubTypes.map(rsubsubtypes => (
+      <option value={rsubsubtypes.value}>{rsubsubtypes.option}</option>
+    ));
   };
 
   onUpdateRegDetails = e => {
@@ -108,25 +123,7 @@ class EquipmentSwitch extends Component {
                       defaultValue={registration.regitemSubtypes}
                       onChange={this.onChange}
                     >
-                      <option value="1">Compression Ignition (Diesel)</option>
-                      <option value="2">Spark Ignition</option>
-                      <option value="3">
-                        Sand & Gravel Screening and Rock Crushing
-                      </option>
-                      <option value="4">Concrete Batch Plant</option>
-                      <option value="5">Abrasive Blasting</option>
-                      <option value="7">Tactical Support Equipment</option>
-                      <option value="8">Miscellaneous</option>
-                      <option value="9">Pile Driver</option>
-                      <option value="10">Wood Processing</option>
-                      <option value="11">Storage Silo</option>
-                      <option value="12">Rock Drill</option>
-                      <option value="13">Slurry Mixer</option>
-                      <option value="14">
-                        Road Surface Processing (Pavement Crushing & Recycling)
-                      </option>
-                      <option value="15">Converted Data</option>
-                      <option value="16">Unknown</option>
+                      {this.selectOptionsRegSubTypes()}
                     </select>
                   </td>
                   <td>
@@ -138,37 +135,7 @@ class EquipmentSwitch extends Component {
                       defaultValue={registration.regitemSubsubtypes}
                       onChange={this.onChange}
                     >
-                      <option value="1">Tub Grinder</option>
-                      <option value="2">Trommel Screen</option>
-                      <option value="3">Hammer Mill</option>
-                      <option value="4">Horizontal Grinder</option>
-                      <option value="5">Wood Chipper</option>
-                      <option value="8">Transfer Conveyor</option>
-                      <option value="10">Compost Turner</option>
-                      <option value="11">Shredder</option>
-                      <option value="12">Cement Slurry Mixer</option>
-                      <option value="13">Lime Slurry Mixer</option>
-                      <option value="14">Crushing plant</option>
-                      <option value="15">Screening plant</option>
-                      <option value="16">Grinder </option>
-                      <option value="17">Planer</option>
-                      <option value="18">Truck Mix</option>
-                      <option value="19">Central Mix</option>
-                      <option value="20">Trenching Machine</option>
-                      <option value="21">Cold Planer</option>
-                      <option value="22">Crushing and screening plant</option>
-                      <option value="23">Wood/Misc Processing Screen</option>
-                      <option value="24">Milling Machine</option>
-                      <option value="25">Pavement Grinder</option>
-                      <option value="26">Conveyor</option>
-                      <option value="27">Aggregate Slurry Mixer</option>
-                      <option value="28">Reclaimer Machine</option>
-                      <option value="29">Mixing Plant</option>
-                      <option value="30">Stump Cutter</option>
-                      <option value="31">Soil Stabilizer</option>
-                      <option value="32">Radial Stacker</option>
-                      <option value="33">Blending Plant</option>
-                      <option value="34">Rip Rap Plant</option>
+                      {this.selectOptionsRegSubSubTypes()}
                     </select>
                   </td>
                   <td style={styles.buttons}>
