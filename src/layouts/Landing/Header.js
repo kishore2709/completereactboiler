@@ -50,8 +50,6 @@ class Header extends Component {
   }
 
   renderLinks() {
-    const { anchorEl } = this.state;
-
     if (this.props.authenticated) {
       const auth = this.props.auth;
       let userName;
@@ -72,40 +70,6 @@ class Header extends Component {
         <li key={2} className="nav__item is-collapsed">
           {this.renderUserRoleBasedLinks()}
         </li>,
-        // <li key={3} className="nav__item is-collapsed">
-        //   <Link
-        //     component={RouterLink}
-        //     to="#"
-        //     className="nav__link is-collapsed"
-        //     aria-owns={anchorEl ? "simple-menu" : undefined}
-        //     aria-haspopup="true"
-        //     onClick={this.handleClick}
-        //     onMouseOver={this.handleClick}
-        //   >
-        //     {"Logged in as " + userName}
-        //   </Link>
-
-        //   <Menu
-        //     className="nav__link is-collapsed"
-        //     id="simple-menu"
-        //     anchorEl={anchorEl}
-        //     getContentAnchorEl={null}
-        //     anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        //     transformOrigin={{ vertical: "top", horizontal: "center" }}
-        //     open={Boolean(anchorEl)}
-        //     onClose={this.handleClose}
-        //   >
-        //     <MenuItem>
-        //       <Link
-        //         component={RouterLink}
-        //         to="/signout"
-        //         className="nav__link is-collapsed"
-        //       >
-        //         Sign Out
-        //       </Link>
-        //     </MenuItem>
-        //   </Menu>
-        // </li>
 
         <li key={3} className="nav__item is-collapsed dropdown">
           <Link

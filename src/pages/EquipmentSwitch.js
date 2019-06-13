@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { grey } from "@material-ui/core/colors";
@@ -7,7 +6,10 @@ import Divider from "@material-ui/core/Divider";
 import PageBase from "../components/Dashboard/PageBase";
 import Table from "@material-ui/core/Table";
 import { connect } from "react-redux";
-import { getEquipmentByTrackingNo } from "../actions/actionsEquipmentSwitch";
+import {
+  getEquipmentByTrackingNo,
+  updateRegTypesByTrackingNo
+} from "../actions/actionsEquipmentSwitch";
 
 import { regSubSubTypes, regSubTypes } from "../data";
 
@@ -37,9 +39,12 @@ class EquipmentSwitch extends Component {
       regitemSubtypes: 0,
       errors: {},
       onsub: false,
-      updated: false
+      updated: false,
+      equipType: true
     };
     this.searchTracking = this.searchTracking.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.onUpdateRegDetails = this.onUpdateRegDetails.bind(this);
   }
 
   searchTracking = e => {
@@ -47,25 +52,55 @@ class EquipmentSwitch extends Component {
     const trackingNo = {
       trackingNo: this.state.trackingNo
     };
-
     // add dispatch method for searching reg by tracking
-    this.setState({ onsub: true });
     this.props.getEquipmentByTrackingNo(trackingNo);
+    this.setState({ onsub: true });
   };
 
+  componentWillReceiveProps(props) {
+    console.log(props.registration.regitemSubtypes);
+
+    if (
+      props.registration.regitemSubtypes === 1 ||
+      props.registration.regitemSubtypes === 2 ||
+      (props.registration.regitemSubtypes === 7 ||
+        props.registration.regitemSubtypes === 9)
+    ) {
+      this.setState({ equipType: false });
+    } else {
+      this.setState({ equipType: true });
+    }
+
+    if (typeof props.registration.regitemSubsubtypes !== "undefined") {
+      this.setState({
+        regitemSubtypes: props.registration.regitemSubtypes,
+        regitemSubsubtypes: props.registration.regitemSubsubtypes
+      });
+    } else {
+      this.setState({
+        regitemSubtypes: props.registration.regitemSubtypes,
+        regitemSubsubtypes: "null"
+      });
+    }
+  }
+
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.id]: e.target.value });
   };
 
   selectOptionsRegSubTypes = e => {
     return regSubTypes.map(rsubtypes => (
-      <option value={rsubtypes.value}>{rsubtypes.option}</option>
+      <option key={rsubtypes.value} value={rsubtypes.value}>
+        {rsubtypes.option}
+      </option>
     ));
   };
 
   selectOptionsRegSubSubTypes = e => {
     return regSubSubTypes.map(rsubsubtypes => (
-      <option value={rsubsubtypes.value}>{rsubsubtypes.option}</option>
+      <option key={rsubsubtypes.value} value={rsubsubtypes.value}>
+        {rsubsubtypes.option}
+      </option>
     ));
   };
 
@@ -74,31 +109,35 @@ class EquipmentSwitch extends Component {
     const regitemSubtypes = this.getRegSubType.value;
     const regitemSubsubtypes = this.getRegSubSubType.value;
     const trackingNo = this.state.trackingNo;
-    const updatedRegdetails = {
+    const updateRegdetails = {
       trackingNo,
       regitemSubtypes,
       regitemSubsubtypes
     };
-    console.log(updatedRegdetails);
-
     // add dispatch method for updating regdetails by tracking
+    this.props.updateRegTypesByTrackingNo(updateRegdetails);
+    // this.props.getEquipmentByTrackingNo(updateRegdetails);
+
     this.setState({ onsub: false, updated: true });
-    //this.props.updateRegTypesByTrackingNo(updatedRegdetails);
   };
 
   displayRegDetails = e => {
     const { registration } = this.props;
 
-    if (this.state.onsub) {
+    if (this.props.error) {
+      return <div>Tracking not found</div>;
+    } else if (!this.state.equipType) {
+      return <div>Not an Equipment Type</div>;
+    } else if (this.state.onsub && registration.length !== 0) {
       return (
         <div>
           <form onSubmit={this.onUpdateRegDetails}>
-            <Table striped bordered>
+            <Table striped="true" bordered="true">
               <thead>
                 <tr>
                   <th>Tracking No</th>
-                  <th>Regitem types</th>
-                  <th>Regitem Subtypes</th>
+                  <th>Equipment types</th>
+                  <th>Equipment Subtypes</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -111,7 +150,7 @@ class EquipmentSwitch extends Component {
                       type="number"
                       disabled="disabled"
                       className="form-control"
-                      defaultValue={this.state.trackingNo}
+                      value={this.state.trackingNo}
                     />
                   </th>
                   <td>
@@ -120,11 +159,24 @@ class EquipmentSwitch extends Component {
                       className="form-control"
                       id="regitemSubtypes"
                       ref={select => (this.getRegSubType = select)}
-                      defaultValue={registration.regitemSubtypes}
-                      onChange={this.onChange}
+                      onChange={this.handleChange}
+                      value={this.state.regitemSubtypes}
                     >
+                      <option value="null">Select </option>
                       {this.selectOptionsRegSubTypes()}
                     </select>
+
+                    {/* <select
+                      type="select"
+                      className="form-control"
+                      id="regitemSubtypes"
+                      ref={select => (this.getRegSubType = select)}
+                      onChange={this.handleChange}
+                      value={registration.regitemSubtypes}
+                    >
+                      <option value="">Select</option>
+                      {this.selectOptionsRegSubTypes()}
+                    </select> */}
                   </td>
                   <td>
                     <select
@@ -132,20 +184,22 @@ class EquipmentSwitch extends Component {
                       className="form-control"
                       id="regitemSubsubtypes"
                       ref={select => (this.getRegSubSubType = select)}
-                      defaultValue={registration.regitemSubsubtypes}
-                      onChange={this.onChange}
+                      onChange={this.handleChange}
+                      value={this.state.regitemSubsubtypes}
                     >
+                      <option value="null">Select </option>
                       {this.selectOptionsRegSubSubTypes()}
                     </select>
                   </td>
                   <td style={styles.buttons}>
-                    <input
-                      style={styles.saveButton}
+                    <Button
                       variant="contained"
                       color="secondary"
                       type="submit"
                       value="Update"
-                    />
+                    >
+                      Update
+                    </Button>
                   </td>
                 </tr>
               </tbody>
@@ -175,7 +229,7 @@ class EquipmentSwitch extends Component {
           <form onSubmit={this.searchTracking}>
             <TextField
               name="trackingNo"
-              hintText="Tracking No"
+              id="trackingNo"
               label="Enter Tracking No"
               value={this.state.trackingNo}
               margin="normal"
@@ -206,12 +260,16 @@ class EquipmentSwitch extends Component {
 
 const mapStateToProps = state => ({
   registration: state.equip.regItemDetails,
-  auth: state.auth
+  auth: state.auth,
+  error: state.equip.error
 });
 
 const mapDispatchToProps = dispatch => ({
   getEquipmentByTrackingNo: trackingNo =>
-    dispatch(getEquipmentByTrackingNo(trackingNo))
+    dispatch(getEquipmentByTrackingNo(trackingNo)),
+
+  updateRegTypesByTrackingNo: updateRegdetails =>
+    dispatch(updateRegTypesByTrackingNo(updateRegdetails))
 });
 
 export default connect(

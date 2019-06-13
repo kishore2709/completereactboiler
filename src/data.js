@@ -1,6 +1,4 @@
 import React from "react";
-import Faker from "faker";
-import Assessment from "@material-ui/icons/Assessment";
 import GridOn from "@material-ui/icons/GridOn";
 import PermIdentity from "@material-ui/icons/PermIdentity";
 import Web from "@material-ui/icons/Web";
@@ -18,61 +16,65 @@ import AttachMoney from "@material-ui/icons/AttachMoney";
 import avtar from "./assets/images/avtar.jpeg";
 
 export const regSubTypes = [
-  {
-    option: "Compression Ignition (Diesel)",
-    value: 1
-  },
-  {
-    option: "Spark Ignition",
-    value: 2
-  },
+  // {
+  //   option: "Compression Ignition (Diesel)",
+  //   value: 1
+  // },
+  // {
+  //   option: "Spark Ignition",
+  //   value: 2
+  // },
   {
     option: "  Sand & Gravel Screening and Rock Crushing",
     value: 3
   },
   {
-    option: "Abrasive Blasting",
+    option: "Concrete Batch Plant",
     value: 4
   },
   {
-    option: "Tactical Support Equipment",
+    option: "Abrasive Blasting",
     value: 5
   },
+  // {
+  //   option: "Tactical Support Equipment",
+  //   value: 7
+  // },
   {
     option: "Miscellaneous",
-    value: 6
-  },
-  {
-    option: "Pile Driver",
-    value: 7
-  },
-  {
-    option: "Wood Processing",
     value: 8
   },
+  // {
+  //   option: "Pile Driver",
+  //   value: 9
+  // },
   {
-    option: "Storage Silo",
-    value: 9
-  },
-  {
-    option: "Rock Drill",
+    option: "Wood Processing",
     value: 10
   },
   {
-    option: "Slurry Mixer",
+    option: "Storage Silo",
     value: 11
   },
   {
-    option: "Road Surface Processing (Pavement Crushing & Recycling)",
+    option: "Rock Drill",
     value: 12
   },
   {
-    option: "Converted Data",
+    option: "Slurry Mixer",
     value: 13
   },
   {
-    option: "Unknown",
+    option: "Road Surface Processing (Pavement Crushing & Recycling)",
     value: 14
+  },
+  {
+    option: "Converted Data",
+    value: 15
+  },
+  {
+    option: "Unknown",
+    value: 16
   }
 ];
 
